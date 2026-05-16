@@ -1,0 +1,30 @@
+[project]
+name = "hermes-webhook-sender"
+version = "0.1.0"
+description = "Hermes webhook sender"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "fastapi>=0.136.1",
+    "requests>=2.32.0",
+    "uvicorn>=0.47.0",
+]
+
+[dependency-groups]
+dev = [
+    "poethepoet>=0.37.0",
+    "pytest>=7.0.0"
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.setuptools.package-dir]
+hermes_webhook_sender = "./src"
+
+[tool.poe.tasks.test]
+cmd = "pytest"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
